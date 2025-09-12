@@ -1,8 +1,8 @@
 ---
 course: "[[АиП - lab1]]"
 type: lab
-date: 2025-09-11
-progress: in progress
+date: 2025-09-12
+progress: done
 author: estoiko
 ---
 #cpp 
