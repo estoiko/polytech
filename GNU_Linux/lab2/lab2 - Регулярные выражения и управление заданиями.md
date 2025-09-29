@@ -1,9 +1,8 @@
 ---
 course: "[[GNU Linux]]"
 type: lab
-date: 2025-09-14
-progress: in progress
-cssclass: custom-dark-theme
+date: 2025-09-27
+progress: done
 author: estoiko
 ---
 #linux #bash #regex
