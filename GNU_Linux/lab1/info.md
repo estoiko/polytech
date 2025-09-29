@@ -1,1 +1,0 @@
-- *GNU_Linux* course
