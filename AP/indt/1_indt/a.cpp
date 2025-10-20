@@ -2,13 +2,14 @@
 #include <exception>
 #include <iomanip>
 #include <cmath>
+#include <fstream>
 
 #include "matrix.h"
 
 void allocMatrix(int** (&dArray), const int& size);
 void freeMatrix(int** (&dArray), const int& size);
-void inArray(int** arr, const int &size, std::istream& stream);
-void outArray(int** arr, const int &size, std::ostream& stream);
+void inArray(int** arr, const int &size, const char* filename);
+void outArray(int** arr, const int &size, const char* filename);
 
 int maxLenSubArray(int** (&dArray), const int& size) {
     int* lenCount = new int [size] {-1};
@@ -52,10 +53,16 @@ int main() {
 
     try {
         allocMatrix(matrix, mSize);
-        inArray(matrix, mSize, std::cin);
 
+        inArray(matrix, mSize, "in.txt");
+
+        std::ofstream file("out.txt");
+        if (!file) {
+            throw std::runtime_error("ERROR: File can not be open!");
+        }
         // 11) Номер строки, в которой находится самая длинная серия подряд идущих равных элементов.
-        std::cout << maxLenSubArray(matrix, mSize) << "\n";
+        file << maxLenSubArray(matrix, mSize) << "\n";
+        file.close();
 
         // outArray(matrix, mSize, std::cout);
 
