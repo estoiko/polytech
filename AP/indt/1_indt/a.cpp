@@ -6,18 +6,18 @@
 
 #include "matrix.h"
 
-void allocMatrix(int** (&dArray), const int& size);
-void freeMatrix(int** (&dArray), const int& size);
-void inArray(int** arr, const int &size, const char* filename);
-void outArray(int** arr, const int &size, const char* filename);
+void allocMatrix(int** (&dMatrix), const int& size);
+void freeMatrix(int** (&dMatrix), const int& size);
+void inMatrix(int** arr, const int &size, std::istream &stream);
+void outMatrix(const int* const * arr, const int &size, std::ostream &stream);
 
-int maxLenSubArray(int** (&dArray), const int& size) {
+int maxLenSubArray(const int* const * dMatrix, const int& size) {
     int* lenCount = new int [size] {-1};
 
     for (int i = 0; i < size; ++i) {
         int currentMaxSubLen = 1;
         for (int j = 0; j < size - 1; ++j) {
-            if (dArray[i][j] == dArray[i][j + 1]) {
+            if (dMatrix[i][j] == dMatrix[i][j + 1]) {
                 ++currentMaxSubLen;
             } else {
                 lenCount[i] = std::max(lenCount[i], currentMaxSubLen);
@@ -25,6 +25,10 @@ int maxLenSubArray(int** (&dArray), const int& size) {
             }
         }
         lenCount[i] = std::max(lenCount[i], currentMaxSubLen);
+
+        if (lenCount[i] == size) {
+            break;
+        }
     }
 
     int maxLenCount = 0;
@@ -41,43 +45,41 @@ int maxLenSubArray(int** (&dArray), const int& size) {
     }
 
     delete[] lenCount;
-
     return maxLineNum;
 }
 
 int main() {
     int** matrix = nullptr;
-
-    int mSize;
-    std::cin >> mSize;
+    int mSize = 0;
 
     try {
-        allocMatrix(matrix, mSize);
-
-        inArray(matrix, mSize, "in.txt");
-
-        std::ofstream file("out.txt");
-        if (!file) {
-            throw std::runtime_error("ERROR: File can not be open!");
+        std::ifstream inFile("in.txt");
+        if (!inFile) {
+            throw std::runtime_error("ERROR: file cannot be opened");
         }
-        // 11) Номер строки, в которой находится самая длинная серия подряд идущих равных элементов.
-        file << maxLenSubArray(matrix, mSize) << "\n";
-        file.close();
 
-        // outArray(matrix, mSize, std::cout);
+        inFile >> mSize;
+        allocMatrix(matrix, mSize);
+        inMatrix(matrix, mSize, inFile);
+        inFile.close();
 
-    } catch (std::runtime_error &ex) {
+        std::ofstream outFile("out.txt");
+        outFile << maxLenSubArray(matrix, mSize) << "\n";
+        outFile.close();
+
+    } catch (const std::runtime_error &ex) {
         std::cerr << ex.what() << "\n";
-    } catch (std::invalid_argument &ex) {
+    } catch (const std::invalid_argument &ex) {
         std::cerr << ex.what() << "\n";
-    } catch (std::bad_alloc &ex) {
+    } catch (const std::bad_alloc &ex) {
         std::cerr << "ERROR: Memory is not allocated" << "\n";
     } catch (...) {
-        std::cerr << "UNKNOWN ERROR\n";
+        std::cerr << "ERROR: Unknown\n";
     }
     
     if (matrix != nullptr) {
         freeMatrix(matrix, mSize);
+        matrix = nullptr;
     }
 
     return 0;

@@ -1,56 +1,48 @@
 #ifndef MATRIX_H
 #define MATRIX_H
 
-void allocMatrix(int** (&dArray), const int& size) {
+void allocMatrix(int** (&dMatrix), const int& size) {
     if (size <= 0) {
         throw std::invalid_argument("ERROR: Invalid size specified");
     }
 
-    dArray = new int* [size] {nullptr};
+    dMatrix = new int* [size] {nullptr};
     for (int i = 0; i < size; ++i) {
-        dArray[i] = new int [size] {0};
+        dMatrix[i] = new int [size] {0};
     }
 }
 
-void freeMatrix(int** (&dArray), const int& size) {
+void freeMatrix(int** (&dMatrix), const int& size) {
     for (int i = 0; i < size; ++i) {
-        delete[] dArray[i];
+        delete[] dMatrix[i];
     }
-    delete[] dArray;
-    dArray = nullptr;
+    delete[] dMatrix;
+    dMatrix = nullptr;
 }
 
-void inArray(int** arr, const int &size, const char* filename) {
-    std::ifstream file(filename);
-
+void inMatrix(int** arr, const int &size, std::istream &stream) {
     for (int i = 0; i < size; ++i) {
         for (int j = 0; j < size; ++j) {
-            file >> arr[i][j];
+            stream >> arr[i][j];
 
-            if ((file.eof())) {
+            if ((stream.eof())) {
                 throw std::runtime_error("ERROR: Not enough matrix elements");
             }
 
-            if (!(file)) {
+            if (!(stream)) {
                 throw std::runtime_error("ERROR: Invalid matrix element");
             }
         }
     }
-
-    file.close();
 }
 
-void outArray(int** arr, const int &size, const char* filename) {
-    std::ofstream file(filename);
-
+void outMatrix(const int* const * arr, const int &size, std::ostream &stream) {
     for (int i = 0; i < size; ++i) {
         for (int j = 0; j < size; ++j) {
-            file << std::setw(3) << arr[i][j];
+            stream << std::setw(3) << arr[i][j];
         }
-        file << "\n";
+        stream << "\n";
     }
-
-    file.close();
 }
 
 #endif /* MATRIX_H */
