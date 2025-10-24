@@ -4,12 +4,49 @@
 #include <cmath>
 #include <fstream>
 
-#include "matrix.h"
+void allocMatrix(int** (&dMatrix), const int& size) {
+    if (size <= 0) {
+        throw std::invalid_argument("ERROR: Invalid size specified");
+    }
 
-void allocMatrix(int** (&dMatrix), const int& size);
-void freeMatrix(int** (&dMatrix), const int& size);
-void inMatrix(int** arr, const int &size, std::istream &stream);
-void outMatrix(const int* const * arr, const int &size, std::ostream &stream);
+    dMatrix = new int* [size] {nullptr};
+    for (int i = 0; i < size; ++i) {
+        dMatrix[i] = new int [size] {0};
+    }
+}
+
+void freeMatrix(int** (&dMatrix), const int& size) {
+    for (int i = 0; i < size; ++i) {
+        delete[] dMatrix[i];
+    }
+    delete[] dMatrix;
+    dMatrix = nullptr;
+}
+
+void inMatrix(int** arr, const int &size, std::istream &stream) {
+    for (int i = 0; i < size; ++i) {
+        for (int j = 0; j < size; ++j) {
+            stream >> arr[i][j];
+
+            if ((stream.eof())) {
+                throw std::runtime_error("ERROR: Not enough matrix elements");
+            }
+
+            if (!(stream)) {
+                throw std::runtime_error("ERROR: Invalid matrix element");
+            }
+        }
+    }
+}
+
+void outMatrix(const int* const * arr, const int &size, std::ostream &stream) {
+    for (int i = 0; i < size; ++i) {
+        for (int j = 0; j < size; ++j) {
+            stream << std::setw(3) << arr[i][j];
+        }
+        stream << "\n";
+    }
+}
 
 int maxLenSubArray(const int* const * dMatrix, const int& size) {
     int* lenCount = new int [size] {-1};
