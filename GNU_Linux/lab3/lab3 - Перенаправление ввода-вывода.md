@@ -2,7 +2,6 @@
 course: "[[GNU Linux]]"
 type: lab
 date: 2025-09-29
-progress: done
 author: estoiko
 ---
 #linux #bash 
@@ -52,5 +51,5 @@ vbox@user:∼$ ls file1 file2
 Файл file1 существует, файл file2 не существует. Перенаправьте только стандартную ошибку в канал, одновременно записывая номера строк, и перенаправьте вывод в файл.
 
 ```bash
-ls file1 file2 2> >(nl > OUTPUT)
+ls file1 file2 3>&1 1>&2 2>&3 | nl > output.txt
 ```
