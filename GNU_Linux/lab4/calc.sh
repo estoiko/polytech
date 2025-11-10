@@ -4,15 +4,15 @@ shift 1
 while [ $#  -gt 1 ]; do
     case $1 in
         +) res=`echo "scale=6;$res + $2" | bc`;;
-	-) res=`echo "scale=6;$res - $2" | bc`;; 
-	x) res=`echo "scale=6;$res * $2" | bc`;;
+		-) res=`echo "scale=6;$res - $2" | bc`;; 
+		x) res=`echo "scale=6;$res * $2" | bc`;;
         /) 
-	if [ `echo "$2 == 0" | bc` = "1" ]; then 
-		res="d"
-		break
-	fi
-	res=`echo "scale=6;$res / $2" | bc`;;
-	*) res="!"; break;;
+			if [ `echo "$2 == 0" | bc` = "1" ]; then 
+				res="d"
+				break
+			fi
+			res=`echo "scale=6;$res / $2" | bc`;;
+		*) res="!"; break;;
     esac
     shift 2
 done
