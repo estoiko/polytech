@@ -216,8 +216,17 @@ int main() {
     my::strcpy(buf48, buf48);
     assert(buf48[0] == 'a' && buf48[1] == 'b' && buf48[2] == 'c' && buf48[3] == '\0' && "Тест 48: my::strcpy самокопирование 'abc', строка должна остаться 'abc\\0'");
 
-    String s49;
-    std::cin >> s49;
-    std::cout << s49 << "\n";
+    // String s49;
+    // std::cin >> s49;
+    // std::cout << s49 << "\n";
+
+    // const String s50("abc");
+    // s50[2];
+
+    // std::string s51("abc");
+    // s51[194] = 'r';
+    // std::cout << s51[194] << "\n";
+
+    std::cout << "All done.\n";
     return 0;
 }

@@ -86,10 +86,14 @@ bool String::operator!=(const String& other) const {
 }
 
 char& String::operator[](size_t index) {
+    if (index < 0 || index > length_ - 1) 
+        throw std::out_of_range("ERROR: string index out of bounds"); 
     return data_[index];
 }
 
 const char& String::operator[](size_t index) const {
+    if (index < 0 || index > length_ - 1) 
+        throw std::out_of_range("ERROR: string index out of bounds"); 
     return data_[index];
 }
 
