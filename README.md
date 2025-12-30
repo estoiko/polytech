@@ -38,5 +38,5 @@
   - _contains tmp.txt_
 
 ### Physics
-- `tasks.md`
-- `test_sem1.pdf`
+- [Задачи](Physics/tasks.md)
+- [Вопросы для подготовки к тестированию по теории (1й семестр)](Physics/test_sem1.pdf)
