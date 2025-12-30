@@ -1,6 +1,6 @@
 #!/bin/bash
 N=$1
-
+ 
 for ((i=1; i<=N; i++)); do    
     for ((j=0; j<$((N - i)); j++)); do
         echo -n " "

@@ -1,0 +1,126 @@
+Compiling with -O0 ...
+
+TIME(s):
+
+real	0m25.590s
+user	0m25.328s
+sys	0m0.261s
+
+SIZE(bytes):
+
+25472
+
+------------------------------------------------
+
+Compiling with -Os ...
+
+TIME(s):
+
+real	0m15.709s
+user	0m15.578s
+sys	0m0.131s
+
+SIZE(bytes):
+
+18552
+
+------------------------------------------------
+
+Compiling with -O1 ...
+
+TIME(s):
+
+real	0m14.275s
+user	0m14.084s
+sys	0m0.189s
+
+SIZE(bytes):
+
+18328
+
+------------------------------------------------
+
+Compiling with -O2 ...
+
+TIME(s):
+
+real	0m14.135s
+user	0m13.930s
+sys	0m0.203s
+
+SIZE(bytes):
+
+18752
+
+------------------------------------------------
+
+Compiling with -O3 ...
+
+TIME(s):
+
+real	0m7.435s
+user	0m7.274s
+sys	0m0.160s
+
+SIZE(bytes):
+
+18584
+
+------------------------------------------------
+
+Compiling with -O2 -march=native ...
+
+TIME(s):
+
+real	0m13.849s
+user	0m13.755s
+sys	0m0.092s
+
+SIZE(bytes):
+
+18752
+
+------------------------------------------------
+
+Compiling with -O3 -march=native ...
+
+TIME(s):
+
+real	0m7.332s
+user	0m7.239s
+sys	0m0.094s
+
+SIZE(bytes):
+
+22680
+
+------------------------------------------------
+
+Compiling with -O2 -march=native -funroll-loops ...
+
+TIME(s):
+
+real	0m14.351s
+user	0m14.221s
+sys	0m0.130s
+
+SIZE(bytes):
+
+22848
+
+------------------------------------------------
+
+Compiling with -O3 -march=native -funroll-loops ...
+
+TIME(s):
+
+real	0m7.764s
+user	0m7.611s
+sys	0m0.153s
+
+SIZE(bytes):
+
+22680
+
+------------------------------------------------
+
