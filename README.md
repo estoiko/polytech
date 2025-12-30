@@ -20,7 +20,7 @@
     1. [Задача про кирпич](AP/sem1/task1)
     2. [Задача про координатные четверти](AP/sem1/task2)
 - [**sem2**](AP/sem2)
-  - _(empty for now)_
+  - _contains tmp.txt_
 
 ### GNU_Linux
 - [**sem1**](GNU_Linux/sem1)
@@ -30,9 +30,13 @@
     3. [Индивидуальное задание 3](GNU_Linux/sem1/indt3)
     4. [Индивидуальное задание 4](GNU_Linux/sem1/indt4)
   - _labs_
-    1. [Основы командной строки](GNU_Linux/sem1/lab1) 
+    1. [Основы командной строки](GNU_Linux/sem1/lab1)
     2. [Регулярные выражения и управление заданиями](GNU_Linux/sem1/lab2)
     3. [Перенаправление ввода-вывода](GNU_Linux/sem1/lab3)
     4. [Скрипты Bash](GNU_Linux/sem1/lab4)
 - [**sem2**](GNU_Linux/sem2)
-  - _(empty for now)_
+  - _contains tmp.txt_
+
+### Physics
+- `tasks.md`
+- `test_sem1.pdf`
