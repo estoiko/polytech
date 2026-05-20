@@ -1,0 +1,19 @@
+Внезапно name1@ya.ru оказался в пустоте.  
+Но затем na-me2@ya.ru появился из ниоткуда.  
+В письме было указано: name3@ya1.ya-2.ru  
+( spb@edu.ru ) - это контакты университета.  
+Кто-то сказал a@b.cd и все замолчали.  
+Адрес для ответа: first.last@sub.domain.co.uk  
+Он оставил email123@test-mail.com однако не ответил.  
+x@example.info был на экране.  
+(other.email-with-dash@example.com) - еще один вариант.
+
+А вот недопустимые: привет1not@ya.ruмир и словоno.-t2@ya.ruеще.  
+Пишитенаabc@cde.efсразу если что.  
+А этоnot@.comнеправильно.  
+Сообщение-not-allowed@example.comне доходит.  
+В not@allowed..comслучае ошибки.  
+Для not@-allowed.comтеста.  
+Not@allowed_.com это не работает.  
+Abc.example.com просто текст.  
+Not@allowedдомен не существует.

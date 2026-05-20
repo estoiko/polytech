@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>lab4 @estoiko</title>
+  <style>
+
+html {
+color: #1a1a1a;
+background-color: #fdfdfd;
+}
+body {
+margin: 0 auto;
+max-width: 36em;
+padding-left: 50px;
+padding-right: 50px;
+padding-top: 50px;
+padding-bottom: 50px;
+hyphens: auto;
+overflow-wrap: break-word;
+text-rendering: optimizeLegibility;
+font-kerning: normal;
+}
+@media (max-width: 600px) {
+body {
+font-size: 0.9em;
+padding: 12px;
+}
+h1 {
+font-size: 1.8em;
+}
+}
+@media print {
+html {
+background-color: white;
+}
+body {
+background-color: transparent;
+color: black;
+font-size: 12pt;
+}
+p, h2, h3 {
+orphans: 3;
+widows: 3;
+}
+h2, h3, h4 {
+page-break-after: avoid;
+}
+}
+p {
+margin: 1em 0;
+}
+a {
+color: #1a1a1a;
+}
+a:visited {
+color: #1a1a1a;
+}
+img {
+max-width: 100%;
+}
+svg {
+height: auto;
+max-width: 100%;
+}
+h1, h2, h3, h4, h5, h6 {
+margin-top: 1.4em;
+}
+h5, h6 {
+font-size: 1em;
+font-style: italic;
+}
+h6 {
+font-weight: normal;
+}
+ol, ul {
+padding-left: 1.7em;
+margin-top: 1em;
+}
+li > ol, li > ul {
+margin-top: 0;
+}
+blockquote {
+margin: 1em 0 1em 1.7em;
+padding-left: 1em;
+border-left: 2px solid #e6e6e6;
+color: #606060;
+}
+code {
+font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+font-size: 85%;
+margin: 0;
+hyphens: manual;
+}
+pre {
+margin: 1em 0;
+overflow: auto;
+}
+pre code {
+padding: 0;
+overflow: visible;
+overflow-wrap: normal;
+}
+.sourceCode {
+background-color: transparent;
+overflow: visible;
+}
+hr {
+border: none;
+border-top: 1px solid #1a1a1a;
+height: 1px;
+margin: 1em 0;
+}
+table {
+margin: 1em 0;
+border-collapse: collapse;
+width: 100%;
+overflow-x: auto;
+display: block;
+font-variant-numeric: lining-nums tabular-nums;
+}
+table caption {
+margin-bottom: 0.75em;
+}
+tbody {
+margin-top: 0.5em;
+border-top: 1px solid #1a1a1a;
+border-bottom: 1px solid #1a1a1a;
+}
+th {
+border-top: 1px solid #1a1a1a;
+padding: 0.25em 0.5em 0.25em 0.5em;
+}
+td {
+padding: 0.125em 0.5em 0.25em 0.5em;
+}
+header {
+margin-bottom: 4em;
+text-align: center;
+}
+#TOC li {
+list-style: none;
+}
+#TOC ul {
+padding-left: 1.3em;
+}
+#TOC > ul {
+padding-left: 0;
+}
+#TOC a:not(:hover) {
+text-decoration: none;
+}
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+</style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">lab4 @estoiko</h1>
+</header>
+<h1 id="основы-работы-с-markdown">Основы работы с markdown</h1>
+<h2 id="содержание">Содержание</h2>
+<ol type="1">
+<li><a href="#документ">Документ</a></li>
+<li><a href="#теги">Теги</a></li>
+<li><a href="#вставки">Вставки</a></li>
+</ol>
+<h2 id="документ">Документ</h2>
+<p>Структура документа задается с помощью заголовков. Заголовки задаются
+символом <code>#</code> в начале строки — количество символов
+<code>#</code> определяет уровень раздела (от 1 до 6). Markdown-документ
+строится иерархически: разделы первого уровня содержат разделы второго,
+те — третьего и так далее. Каждый новый раздел начинается с заголовка на
+отдельной строке.</p>
+<p>Текст внутри разделов состоит из абзацев, которые в исходном коде
+разделяются <strong>пустой строкой</strong>. Сколько бы пробелов,
+табуляций или переносов строки ни стояло между словами — после сборки
+они превратятся в один пробел. Абзацы объединяют предложения, а
+предложение заканчивается точкой после последнего слова.</p>
+<h2 id="теги">Теги</h2>
+<ul>
+<li><strong>Парные теги</strong> (охватывают фрагмент текста с обеих
+сторон):
+<ul>
+<li><code>*текст*</code> или <code>_текст_</code> — <em>курсив</em>
+(пример: <code>_курсив_</code> → <em>курсив</em>)</li>
+<li><code>**текст**</code> — <strong>жирный</strong> (пример:
+<code>**жирный**</code> → <strong>жирный</strong>)</li>
+<li><code>~~текст~~</code> — <del>зачёркнутый</del> (пример:
+<code>~~зачёркнутый~~</code> → <del>зачёркнутый</del>)</li>
+<li><code>***текст***</code> — <strong><em>жирный курсив</em></strong>
+(пример: <code>***жирный курсив***</code> → <strong><em>жирный
+курсив</em></strong>)</li>
+</ul></li>
+<li><strong>Строчные теги</strong> (действуют на всю строку или элемент
+с начала):
+<ul>
+<li><code>&gt;</code> — цитата</li>
+</ul></li>
+</ul>
+<blockquote>
+<p>Это пример цитаты</p>
+</blockquote>
+<ul>
+<li><code>&gt;&gt;</code> — вложенная цитата</li>
+</ul>
+<blockquote>
+<blockquote>
+<p>Это пример вложенной цитаты</p>
+</blockquote>
+</blockquote>
+<ul>
+<li><code>*</code>, <code>-</code> или <code>+</code> — элемент
+маркированного списка
+<ul>
+<li>Пример: <code>- элемент</code> →
+<ul>
+<li>элемент первый</li>
+<li>элемент второй</li>
+</ul></li>
+</ul></li>
+<li><code>1.</code> (любая цифра с точкой) — элемент нумерованного
+списка
+<ul>
+<li>Пример: <code>1. пункт</code> →
+<ol type="1">
+<li>первый пункт</li>
+<li>второй пункт</li>
+</ol></li>
+</ul></li>
+</ul>
+<blockquote>
+<p><strong>Примечание:</strong> если нужно отобразить символ тега как
+обычный текст, его необходимо экранировать обратным слешем:
+<code>\*</code> выводится как *.</p>
+</blockquote>
+<h2 id="вставки">Вставки</h2>
+<p>Меня зовут Елисей. Я учусь на первом курсе СПБПУ, на направлении
+<code>Программная Инженерия</code>.</p>
+<p>Мой github: <a href="https://github.com/estoiko"><span class="citation" data-cites="estoiko">@estoiko</span></a></p>
+</body>
+</html>

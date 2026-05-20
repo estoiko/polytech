@@ -1,0 +1,2 @@
+ls: invalid option -- 7
+usage: ls [-@ABCFGHILOPRSTUWXabcdefghiklmnopqrstuvwxy1%,] [--color=when] [-D format] [file ...]
